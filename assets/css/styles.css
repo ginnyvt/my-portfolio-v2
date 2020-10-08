@@ -54,6 +54,7 @@ body {
 	font-weight: var(--fw-medium);
 	color: var(--clr-secondary);
 	line-height: 1.6;
+	overflow-x: hidden;
 }
 
 h1 {
@@ -154,6 +155,142 @@ img {
 .button:hover {
 	box-shadow: var(--bs-secondary);
 }
+
+/* Navigation */
+.nav {
+	background-color: var(--clr-primary);
+	color: #fff;
+}
+
+.nav__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+	height: 3rem;
+}
+.nav__logo {
+	font-weight: var(--fw-semi-bold);
+}
+
+.nav__menu {
+	position: absolute;
+	background-color: #fff;
+	box-shadow: 0 4px 10px rgba(14, 36, 49, 0.15);
+	top: 3rem;
+	right: -100%;
+	width: 70%;
+	height: calc(100vh - 3rem);
+	z-index: 10;
+	transition: all 0.5s ease-in;
+}
+
+.nav__item {
+	padding: 1rem 2rem;
+}
+
+.nav__link {
+	color: var(--clr-secondary);
+	position: relative;
+	font-weight: var(--fw-semi-bold);
+	opacity: 1;
+}
+
+.nav__link::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -0.5rem;
+	width: 100%;
+	height: 0.18rem;
+	background-color: var(--clr-primary);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 300ms ease-in-out;
+}
+
+.nav__link:hover::after {
+	transform: scaleX(1);
+}
+.active::after {
+	transform: scaleX(1);
+}
+.nav__menu.show {
+	right: 0;
+}
+.nav__toggle {
+	cursor: pointer;
+	font-size: 1.3rem;
+}
+
+.fixed {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 3rem;
+	padding: 1rem 2rem;
+	background-color: #fff;
+	color: var(--clr-secondary);
+	box-shadow: var(--bs-primary);
+	z-index: 100;
+}
+/* Navigation desktop */
+@media screen and (min-width: 768px) {
+	.nav__toggle {
+		display: none;
+	}
+
+	.nav__container {
+		height: 4rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.nav__logo {
+		font-weight: var(--fw-bold);
+	}
+	.nav__menu {
+		position: relative;
+		top: inherit;
+		right: initial;
+		background: none;
+		box-shadow: initial;
+		width: initial;
+		height: initial;
+	}
+	.nav__list {
+		display: flex;
+	}
+	.nav__item {
+		padding: 0;
+	}
+	.nav__item + .nav__item {
+		margin-left: 3rem;
+	}
+	.nav__link {
+		color: #fff;
+	}
+
+	.nav__link::after {
+		background-color: var(--clr-secondary);
+	}
+
+	.fixed {
+		height: 4rem;
+	}
+
+	.nav.fixed {
+		max-width: 1170px;
+		width: calc(100% - 4rem);
+		margin: 0 auto;
+	}
+	.fixed .nav__link {
+		color: var(--clr-secondary);
+	}
+}
+
 /* Skills section */
 .skills__subtitle {
 	margin-bottom: var(--mg-1);
@@ -254,7 +391,7 @@ img {
 	font-size: var(--fs-body);
 	font-weight: var(--fw-semi-bold);
 	padding: 1rem;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
 	border: 1.5px solid var(--clr-secondary);
 	outline: none;
 	margin-bottom: var(--mg-3);
@@ -296,6 +433,5 @@ img {
 .footer__icon {
 	font-size: 1.5rem;
 	color: #fff;
-	margin: 0 var(--mg-2);}
-  
-  
+	margin: 0 var(--mg-2);
+}
