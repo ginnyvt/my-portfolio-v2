@@ -204,3 +204,31 @@ img {
 		text-align: initial;
 	}
 }
+
+/* Works section */
+.works__container {
+	row-gap: 2rem;
+}
+
+.work__img {
+	box-shadow: var(--bs-primary);
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+.work__img img {
+	transition: transform 0.6s ease-in-out;
+	cursor: pointer;
+}
+
+.work__img img:hover {
+	transform: scale(1.1);
+}
+
+@media screen and (min-width: 768px) {
+	.works__container {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		column-gap: 2rem;
+	}
+}
