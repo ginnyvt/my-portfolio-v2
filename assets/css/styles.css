@@ -160,6 +160,7 @@ img {
 
 .header {
 	box-shadow: var(--bs-primary);
+	transition: 0.5s ease;
 }
 
 .nav {
@@ -283,7 +284,7 @@ img {
 	}
 
 	.nav__link::after {
-		background-color: var(--clr-secondary);
+		background-color: var(--clr-primary);
 	}
 	.active::after {
 		transform: scaleX(0);
