@@ -54,7 +54,7 @@ body {
 	font-weight: var(--fw-medium);
 	color: var(--clr-secondary);
 	line-height: 1.5;
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
 }
 
 h1 {
@@ -276,7 +276,7 @@ img {
 		padding: 0;
 	}
 	.nav__item + .nav__item {
-		margin-left: 2.5rem;
+		margin-left: 3.5rem;
 	}
 	.nav__link {
 		color: var(--clr-secondary);
