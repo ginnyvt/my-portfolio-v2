@@ -9,10 +9,10 @@
 :root {
 	--ff-primary: 'Poppins', sans-serif;
 
-	--fs-body: 1rem;
+	--fs-body: 0.938rem;
 	--fs-small: 0.85rem;
-	--fs-h1: 1.5rem;
-	--fs-h2: 1.3rem;
+	--fs-h1: 2rem;
+	--fs-h2: 1.25rem;
 	--fs-h3: 1.15rem;
 
 	--fw-medium: 500;
@@ -35,10 +35,10 @@
 
 @media screen and (min-width: 768px) {
 	:root {
-		--fs-body: 1.15rem;
+		--fs-body: 1rem;
 		--fs-small: 0.95rem;
-		--fs-h1: 2.25rem;
-		--fs-h2: 1.5rem;
+		--fs-h1: 3.5rem;
+		--fs-h2: 2rem;
 		--fs-h3: 1.25rem;
 	}
 }
@@ -53,8 +53,8 @@ body {
 	font-size: var(--fs-body);
 	font-weight: var(--fw-medium);
 	color: var(--clr-secondary);
-	line-height: 1.6;
-	overflow-x: hidden;
+	line-height: 1.5;
+	/* overflow-x: hidden; */
 }
 
 h1 {
@@ -122,7 +122,7 @@ img {
 	}
 
 	.section-title {
-		margin-bottom: var(--mg-5);
+		margin-bottom: var(--mg-6);
 	}
 
 	.section-title::after {
@@ -133,13 +133,13 @@ img {
 /* Layout */
 .grid {
 	display: grid;
-	max-width: 1170px;
+	max-width: 1024px;
 	margin: 0 auto;
 	grid-template-columns: 100%;
 	grid-column-gap: 2rem;
-	width: calc(100% - 4rem);
-	/* margin-left: var(--mg-4); */
-	/* margin-right: var(--mg-4); */
+	width: calc(100% - 2rem);
+	margin-left: var(--mg-2);
+	margin-right: var(--mg-2);
 }
 
 /* Buttons */
@@ -159,24 +159,23 @@ img {
 /* Navigation */
 
 .header {
-	background-color: var(--clr-primary);
+	box-shadow: var(--bs-primary);
 }
 
 .nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 1170px;
-	width: calc(100% - 4rem);
+	max-width: 1024px;
+	width: calc(100% - 3rem);
 	margin: 0 auto;
 	height: 3rem;
-	color: #fff;
-	/* padding: 1rem 2rem; */
+	color: var(--clr-secondary);
 }
 
 .nav__logo {
 	font-weight: var(--fw-semi-bold);
-	color: #fff;
+	color: var(--clr-secondary);
 }
 
 .nav__menu {
@@ -235,19 +234,21 @@ img {
 	top: 0;
 	left: 0;
 	height: 3rem;
-	/* padding: 1rem 2rem; */
-	background-color: #fff;
+	background-color: var(--clr-primary);
 	box-shadow: var(--bs-primary);
 	z-index: 100;
 }
 
 .fixed .nav {
 	color: var(--clr-secondary);
+	color: #fff;
 }
 
 .fixed .nav__logo {
 	color: var(--clr-secondary);
+	color: #fff;
 }
+
 /* Navigation desktop */
 @media screen and (min-width: 768px) {
 	.nav__toggle {
@@ -269,20 +270,20 @@ img {
 		height: initial;
 	}
 	.nav__list {
-		display: flex;
+		display: flex !important;
 	}
 	.nav__item {
 		padding: 0;
 	}
 	.nav__item + .nav__item {
-		margin-left: 3rem;
+		margin-left: 2.5rem;
 	}
 	.nav__link {
-		color: #fff;
+		color: var(--clr-secondary);
 	}
 
 	.nav__link::after {
-		background-color: #fff;
+		background-color: var(--clr-secondary);
 	}
 	.active::after {
 		transform: scaleX(0);
@@ -290,23 +291,86 @@ img {
 	.fixed {
 		height: 4rem;
 	}
-
 	.fixed .nav__link {
 		color: var(--clr-secondary);
+		color: #fff;
 	}
-
+	.fixed .nav__link::after {
+		background-color: #fff;
+	}
 	.fixed .nav__logo {
 		color: var(--clr-secondary);
+		color: #fff;
+	}
+}
+
+/* Home section */
+.home {
+	height: calc(100vh - 3rem);
+	row-gap: 1rem;
+}
+.home__data {
+	align-self: center;
+}
+.home__title {
+	margin-bottom: var(--mg-5);
+}
+.home__title-color {
+	color: var(--clr-primary);
+}
+.home__social {
+	display: flex;
+	flex-direction: column;
+}
+.home__social-icon {
+	width: max-content;
+	margin-bottom: var(--mg-2);
+	font-size: 1.5rem;
+	color: var(--clr-secondary);
+}
+.home__social-icon:hover {
+	color: var(--clr-primary);
+}
+.home__img {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	width: 295px;
+}
+@media screen and (min-width: 768px) {
+	.home {
+		height: 100vh;
+	}
+	.home__data {
+		align-self: flex-end;
+	}
+	.home__social {
+		padding-top: 0;
+		/* padding-bottom: 2.5rem; */
+		flex-direction: row;
+		align-self: center;
+	}
+	.home__social-icon {
+		margin-bottom: 0;
+		margin-left: var(--mg-4);
+	}
+	.home__img {
+		width: 457px;
+		bottom: 15%;
 	}
 }
 
 /* Skills section */
+.skills__container {
+	row-gap: 2rem;
+	text-align: center;
+}
 .skills__subtitle {
-	margin-bottom: var(--mg-1);
+	margin-bottom: var(--mg-2);
 }
 
 .skills__text {
-	margin-bottom: var(--mg-3);
+	margin-bottom: var(--mg-4);
 }
 
 .skills__data {
@@ -322,8 +386,8 @@ img {
 }
 
 .skills__icon {
-	font-size: 1.4rem;
-	margin-right: var(--mg-2) b;
+	font-size: 2rem;
+	margin-right: var(--mg-2);
 	color: var(--clr-primary);
 }
 
@@ -339,6 +403,7 @@ img {
 	height: 0.25rem;
 	background-color: var(--clr-primary);
 	border-radius: 0.5rem;
+	z-index: -10;
 }
 
 .skills__html {
@@ -443,4 +508,14 @@ img {
 	font-size: 1.5rem;
 	color: #fff;
 	margin: 0 var(--mg-2);
+}
+
+@media screen and (min-width: 1024px) {
+	.grid {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.home__img {
+		right: 10%;
+	}
 }
