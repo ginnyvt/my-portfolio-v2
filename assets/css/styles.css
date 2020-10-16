@@ -511,6 +511,7 @@ img {
 	margin: 0 var(--mg-2);
 }
 
+/* General media queries */
 @media screen and (min-width: 1024px) {
 	.grid {
 		margin-left: auto;
